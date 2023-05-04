@@ -1,0 +1,143 @@
+@font-face {
+  font-family: "Inter";
+  src: url(./fonts/Inter-Regular.ttf) format("truetype"),
+    url(./fonts/Inter-Bold.ttf) format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter";
+  font-style: normal;
+}
+
+body {
+  background-color: #e5e5e5;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
+  .wrapper {
+    width: 540px;
+    margin: 0 auto;
+    display: flex;
+    background-color: #111111;
+    border-radius: 15px;
+
+    .cover-img {
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-image: url(./assets/img/spotify.png);
+      width: 169px;
+      height: 169px;
+      border-radius: 15px;
+    }
+
+    .player-comp {
+      width: 371px;
+      height: 169px;
+      background-color: #111111;
+      padding: 17px 30px 0 32px;
+      border-radius: 15px;
+
+      .songTitle-and-spotifybtn {
+        display: flex;
+        justify-content: space-between;
+
+        .song-title {
+          font: 700 18px "Inter";
+          color: #ffffff;
+          width: 260px;
+          word-wrap: break-word;
+        }
+
+        .spotify-btn {
+          background-image: url(./assets/icons/spotifyBtn.png);
+          background-repeat: no-repeat;
+          background-size: contain;
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      .artist-name {
+        font: 400 14px "Inter";
+        color: #696969;
+        width: 260px;
+        padding-top: 5px;
+        word-wrap: break-word;
+      }
+
+      .audio-time {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 19px;
+
+        .audio-line {
+          width: 257px;
+          height: 3px;
+          background: #dadada;
+        }
+
+        .current-time {
+          font: 400 12px "Inter";
+          color: #c1c1c1;
+        }
+      }
+
+      .buttons {
+        display: flex;
+        align-items: center;
+        gap: 55px;
+        padding-top: 17px;
+
+        .repeat-btn {
+          background-image: url(./assets/icons/repeatBtn.png);
+          background-repeat: no-repeat;
+          background-size: contain;
+          width: 24px;
+          height: 24px;
+        }
+
+        .song-control {
+          display: flex;
+          gap: 20px;
+
+          .prev-btn {
+            background-image: url(./assets/icons/prevBtn.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 35px;
+            height: 34px;
+          }
+
+          .play-pause-btn {
+            background-image: url(./assets/icons/playBtn.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 38px;
+            height: 38px;
+          }
+
+          .next-btn {
+            background-image: url(./assets/icons/nextBtn.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 35px;
+            height: 34px;
+          }
+        }
+
+        .fav-btn {
+          background-image: url(./assets/icons/favBtn.png);
+          background-repeat: no-repeat;
+          background-size: contain;
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+  }
+}
