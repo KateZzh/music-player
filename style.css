@@ -33,7 +33,6 @@ body .wrapper {
 body .wrapper .cover-img {
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: url(./assets/img/spotify.png);
   width: 169px;
   height: 169px;
   border-radius: 15px 0 0 15px;
@@ -90,6 +89,11 @@ body .wrapper .player-comp .audio-time .audio-line {
   height: 3px;
   background: #dadada;
 }
+body .wrapper .player-comp .audio-time .audio-line .time-line {
+  width: 0px;
+  height: 3px;
+  background-color: rgb(128, 26, 26);
+}
 body .wrapper .player-comp .audio-time .current-time {
   font: 400 12px "Inter";
   color: #c1c1c1;
@@ -142,6 +146,6 @@ body .wrapper .player-comp .buttons .fav-btn {
   background-image: url(./assets/icons/favBtn.png);
   background-repeat: no-repeat;
   background-size: contain;
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 16px;
 }

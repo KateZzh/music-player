@@ -22,6 +22,7 @@ const songs = [
     imgPath:
       "background-image: url(./assets/img/monster-made-of-memories.jpeg)",
     audioTime: "03:06",
+    like: false,
   },
   {
     id: 2,
@@ -30,6 +31,7 @@ const songs = [
     nameOfSong: "Voices in my head",
     imgPath: "background-image: url(./assets/img/voices_in_my_head.jpeg)",
     audioTime: "03:11",
+    like: false,
   },
   {
     id: 3,
@@ -39,15 +41,36 @@ const songs = [
     imgPath:
       "background-image: url(./assets/img/getting_away_with_murder.jpeg)",
     audioTime: "03:14",
+    like: false,
   },
 ];
 
-playPauseBtn.addEventListener("click", function () {
+function song() {
   audio.src = songs[currentIndexSong].path;
   coverImg.style = songs[currentIndexSong].imgPath;
   songTitle.textContent = songs[currentIndexSong].nameOfSong;
   artistName.textContent = songs[currentIndexSong].artist;
   currentTime.textContent = songs[currentIndexSong].audioTime;
+
+  if (songs[currentIndexSong].like == false) {
+    favBtn.style = "background-image: url(./assets/icons/favBtn.png)";
+  } else favBtn.style = "background-image: url(./assets/icons/favBtnAct.png)";
+}
+
+favBtn.addEventListener("click", function () {
+  if (songs[currentIndexSong].like == false) {
+    songs[currentIndexSong].like = true;
+    this.style = "background-image: url(./assets/icons/favBtnAct.png)";
+  } else {
+    songs[currentIndexSong].like = false;
+    this.style = "background-image: url(./assets/icons/favBtn.png)";
+  }
+});
+
+song();
+
+playPauseBtn.addEventListener("click", function () {
+  song();
 
   if (flag === false) {
     audio.play();
@@ -64,12 +87,7 @@ prevBtn.addEventListener("click", function () {
   if (currentIndexSong === 0) return;
 
   currentIndexSong--;
-
-  audio.src = songs[currentIndexSong].path;
-  coverImg.style = songs[currentIndexSong].imgPath;
-  songTitle.textContent = songs[currentIndexSong].nameOfSong;
-  artistName.textContent = songs[currentIndexSong].artist;
-  currentTime.textContent = songs[currentIndexSong].audioTime;
+  song();
 
   audio.play();
   flag = true;
@@ -80,16 +98,9 @@ nextBtn.addEventListener("click", function () {
   if (currentIndexSong === songs.length - 1) return;
 
   currentIndexSong++;
-
-  audio.src = songs[currentIndexSong].path;
-  coverImg.style = songs[currentIndexSong].imgPath;
-  songTitle.textContent = songs[currentIndexSong].nameOfSong;
-  artistName.textContent = songs[currentIndexSong].artist;
-  currentTime.textContent = songs[currentIndexSong].audioTime;
+  song();
 
   audio.play();
   flag = true;
   playPauseBtn.style = "background-image: url(./assets/icons/pauseBtn.png)";
 });
-
-
