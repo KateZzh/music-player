@@ -69,22 +69,28 @@ body {
         word-wrap: break-word;
       }
 
-      .audio-time {
+      .progress-bar {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding-top: 19px;
 
-        .audio-line {
+        .progress-line {
           width: 257px;
           height: 3px;
           background: #dadada;
 
-          .time-line {
-            width: 0px;
+          .progress {
+            width: 0%;
             height: 3px;
             background-color: rgb(128, 26, 26);
           }
+
+          // .progress-ball {
+          //   width: 0px;
+          //   height: 3px;
+          //   background-color: rgb(128, 26, 26);
+          // }
         }
 
         .current-time {

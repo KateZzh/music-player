@@ -72,7 +72,7 @@ body .wrapper .player-comp .artist-name {
   padding-top: 5px;
   word-wrap: break-word;
 }
-body .wrapper .player-comp .audio-time {
+body .wrapper .player-comp .progress-bar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -84,17 +84,17 @@ body .wrapper .player-comp .audio-time {
           align-items: center;
   padding-top: 19px;
 }
-body .wrapper .player-comp .audio-time .audio-line {
+body .wrapper .player-comp .progress-bar .progress-line {
   width: 257px;
   height: 3px;
   background: #dadada;
 }
-body .wrapper .player-comp .audio-time .audio-line .time-line {
-  width: 0px;
+body .wrapper .player-comp .progress-bar .progress-line .progress {
+  width: 0%;
   height: 3px;
   background-color: rgb(128, 26, 26);
 }
-body .wrapper .player-comp .audio-time .current-time {
+body .wrapper .player-comp .progress-bar .current-time {
   font: 400 12px "Inter";
   color: #c1c1c1;
 }
