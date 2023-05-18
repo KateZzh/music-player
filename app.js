@@ -125,3 +125,8 @@ audio.addEventListener("timeupdate", function () {
 
   timer.innerHTML = `${timeMin}:${timeSec}`;
 });
+
+// Rewind
+document.querySelector(".progress-line").addEventListener("click", function (event) {
+    audio.currentTime = (event.offsetX / this.clientWidth) * audio.duration;
+  });
