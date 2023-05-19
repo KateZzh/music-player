@@ -76,6 +76,8 @@ body {
         padding-top: 19px;
 
         .progress-line {
+          display: flex;
+          align-items: center;
           width: 257px;
           height: 3px;
           background: #dadada;
@@ -86,11 +88,12 @@ body {
             background-color: rgb(128, 26, 26);
           }
 
-          // .progress-ball {
-          //   width: 0px;
-          //   height: 3px;
-          //   background-color: rgb(128, 26, 26);
-          // }
+          .progress-ball {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgb(128, 26, 26);
+          }
         }
 
         .current-time {

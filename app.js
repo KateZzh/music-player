@@ -1,9 +1,4 @@
 const audio = document.querySelector("audio");
-const coverImg = document.querySelector(".cover-img");
-const songTitle = document.querySelector(".song-title");
-const artistName = document.querySelector(".artist-name");
-const audioLine = document.querySelector(".audio-line");
-const currentTime = document.querySelector(".current-time");
 const repeatBtn = document.querySelector(".repeat-btn");
 const prevBtn = document.querySelector(".prev-btn");
 const playPauseBtn = document.querySelector(".play-pause-btn");
@@ -12,6 +7,7 @@ const favBtn = document.querySelector(".fav-btn");
 
 let flag = false;
 let currentIndexSong = 0;
+let currentTimeSong = 0;
 
 const songs = [
   {
@@ -20,7 +16,7 @@ const songs = [
     artist: "Citizen Soldier",
     nameOfSong: "Monster made of memories",
     imgPath:
-      "background-image: url(./assets/img/monster-made-of-memories.jpeg)",
+    "background-image: url(./assets/img/monster-made-of-memories.jpeg)",
     like: false,
   },
   {
@@ -37,17 +33,20 @@ const songs = [
     artist: "Papa Roach",
     nameOfSong: "Getting away with murder",
     imgPath:
-      "background-image: url(./assets/img/getting_away_with_murder.jpeg)",
+    "background-image: url(./assets/img/getting_away_with_murder.jpeg)",
     like: false,
   },
 ];
 
 function song() {
+  const coverImg = document.querySelector(".cover-img");
+  const songTitle = document.querySelector(".song-title");
+  const artistName = document.querySelector(".artist-name");
+
   audio.src = songs[currentIndexSong].path;
   coverImg.style = songs[currentIndexSong].imgPath;
   songTitle.textContent = songs[currentIndexSong].nameOfSong;
   artistName.textContent = songs[currentIndexSong].artist;
-  currentTime.textContent = songs[currentIndexSong].audioTime;
 
   if (songs[currentIndexSong].like == false) {
     favBtn.style = "background-image: url(./assets/icons/favBtn.png)";
@@ -75,10 +74,12 @@ playPauseBtn.addEventListener("click", function () {
   if (flag === false) {
     audio.play();
     flag = true;
+    audio.currentTime = currentTimeSong;
     this.style = "background-image: url(./assets/icons/pauseBtn.png)";
   } else {
     audio.pause();
     flag = false;
+    audio.currentTime = currentTimeSong;
     this.style = "background-image: url(./assets/icons/playBtn.png)";
   }
 });
@@ -124,6 +125,8 @@ audio.addEventListener("timeupdate", function () {
   const timeMin = min < 10 ? `0${min}` : `0${min}`;
 
   timer.innerHTML = `${timeMin}:${timeSec}`;
+
+  currentTimeSong = currentTime;
 });
 
 // Rewind

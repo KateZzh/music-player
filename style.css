@@ -85,6 +85,12 @@ body .wrapper .player-comp .progress-bar {
   padding-top: 19px;
 }
 body .wrapper .player-comp .progress-bar .progress-line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 257px;
   height: 3px;
   background: #dadada;
@@ -92,6 +98,12 @@ body .wrapper .player-comp .progress-bar .progress-line {
 body .wrapper .player-comp .progress-bar .progress-line .progress {
   width: 0%;
   height: 3px;
+  background-color: rgb(128, 26, 26);
+}
+body .wrapper .player-comp .progress-bar .progress-line .progress-ball {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
   background-color: rgb(128, 26, 26);
 }
 body .wrapper .player-comp .progress-bar .current-time {
