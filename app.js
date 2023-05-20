@@ -1,9 +1,7 @@
 const audio = document.querySelector("audio");
-const repeatBtn = document.querySelector(".repeat-btn");
-const prevBtn = document.querySelector(".prev-btn");
 const playPauseBtn = document.querySelector(".play-pause-btn");
-const nextBtn = document.querySelector(".next-btn");
 const favBtn = document.querySelector(".fav-btn");
+// const repeatBtn = document.querySelector(".repeat-btn");
 
 let flag = false;
 let currentIndexSong = 0;
@@ -71,13 +69,15 @@ song();
 playPauseBtn.addEventListener("click", function () {
   song();
 
-  if (flag === false) {
+  if (!flag) {
     audio.play();
+
     flag = true;
     audio.currentTime = currentTimeSong;
     this.style = "background-image: url(./assets/icons/pauseBtn.png)";
   } else {
     audio.pause();
+
     flag = false;
     audio.currentTime = currentTimeSong;
     this.style = "background-image: url(./assets/icons/playBtn.png)";
@@ -85,7 +85,7 @@ playPauseBtn.addEventListener("click", function () {
 });
 
 // Prev song
-prevBtn.addEventListener("click", function () {
+document.querySelector(".prev-btn").addEventListener("click", function () {
   currentIndexSong--;
 
   if (currentIndexSong < 0) currentIndexSong = songs.length - 1;
@@ -98,7 +98,7 @@ prevBtn.addEventListener("click", function () {
 });
 
 // Next song
-nextBtn.addEventListener("click", function () {
+document.querySelector(".next-btn").addEventListener("click", function () {
   currentIndexSong++;
 
   if (currentIndexSong > songs.length - 1) currentIndexSong = 0;
@@ -116,7 +116,7 @@ audio.addEventListener("timeupdate", function () {
   const timer = document.querySelector(".current-time");
   const { currentTime, duration } = this;
 
-  progress.style = `width: ${(currentTime * 100) / duration}%`;
+  progress.style.width = `${(currentTime * 100) / duration}%`;
 
   const sec = Math.trunc(currentTime % 60);
   const min = Math.trunc(currentTime / 60);
